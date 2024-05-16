@@ -7,7 +7,7 @@ const getParametersString = params => {
   return `?${urlSearchParams}`;
 };
 
-export const findAll = async (page = 1, limit = 20, locationValue) => {
+export const getAllCampers = async (page = 1, limit = 20, locationValue) => {
   const url =
     '/advert' +
     getParametersString({
