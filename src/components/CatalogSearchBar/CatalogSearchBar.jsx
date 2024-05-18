@@ -8,6 +8,7 @@ import {
   updateLocationFilter,
 } from '../../redux/slice';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
+import css from './CatalogSearchBar.module.css';
 
 export const CatalogSearchBar = () => {
   const dispatch = useDispatch();
@@ -53,10 +54,10 @@ export const CatalogSearchBar = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSearchSubmit}>
+    <div className={css.container}>
+      <form className={css.form} onSubmit={handleSearchSubmit}>
         <div>
-          <p>Location</p>
+          <p className={css.group}>Location</p>
           <div>
             <input
               id="location"
@@ -78,6 +79,7 @@ export const CatalogSearchBar = () => {
           filters={vehicleEquipment}
         />
         <CatalogFilterList filterGroup="Vehicle type" filters={vehicleType} />
+        <span className={css.gap}></span>
         <button type="submit">Search</button>
       </form>
     </div>

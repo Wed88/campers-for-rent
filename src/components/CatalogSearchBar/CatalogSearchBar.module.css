@@ -1,0 +1,23 @@
+.container {
+  flex-grow: 2;
+  max-width: 33%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.group {
+  color: #10182860;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.gap {
+  margin-bottom: 32px;
+}
