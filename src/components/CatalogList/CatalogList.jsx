@@ -10,6 +10,7 @@ import {
   selectLoadMore,
   selectLoading,
 } from '../../redux/selectors';
+import css from './CatalogList.module.css';
 
 export const CatalogList = () => {
   const dispatch = useDispatch();
@@ -29,10 +30,10 @@ export const CatalogList = () => {
   }, [dispatch, currentPage]);
 
   return (
-    <div>
+    <div className={css.container}>
       {error}
       {campers.length !== 0 && (
-        <ul>
+        <ul className={css.list}>
           {campers.map(camper => {
             return <CatalogItem key={camper._id} camper={camper} />;
           })}
