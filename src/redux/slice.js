@@ -6,7 +6,7 @@ const camperSlice = createSlice({
   name: 'campers',
   initialState: {
     campersrent: {
-      campers: [],
+      items: [],
       loading: false,
       error: null,
       loadMore: false,
@@ -55,9 +55,9 @@ const camperSlice = createSlice({
         campersrent.loading = false;
         campersrent.loadMore = payload.length === 4;
         if (campersrent.currentPage > 1) {
-          campersrent.campers = [...campersrent.campers, ...payload];
+          campersrent.items = [...campersrent.items, ...payload];
         } else {
-          campersrent.campers = payload;
+          campersrent.items = payload;
         }
       })
       .addMatcher(action => action.type.endsWith('pending'), handlePending)

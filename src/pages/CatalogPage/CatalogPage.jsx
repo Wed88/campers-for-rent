@@ -1,7 +1,11 @@
+import { CatalogList } from '../../components/CatalogList/CatalogList';
+
 export const CatalogPage = () => {
   return (
-    <main>
-      <p>CatalogPage</p>
-    </main>
+    <>
+      <div>
+        <CatalogList />
+      </div>
+    </>
   );
 };

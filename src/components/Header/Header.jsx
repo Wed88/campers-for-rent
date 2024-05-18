@@ -1,5 +1,5 @@
-import { Outlet } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
+import { Suspense } from 'react';
 
 export const Header = () => {
   return (
@@ -9,7 +9,9 @@ export const Header = () => {
         <NavLink to="/catalog">Catalog</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
       </nav>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
