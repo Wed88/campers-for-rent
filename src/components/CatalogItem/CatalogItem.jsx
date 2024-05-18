@@ -10,7 +10,9 @@ export const CatalogItem = ({ camper }) => {
         <CatalogItemHeader camper={camper} modal={false} />
         <p className={css.description}>{camper.description}</p>
         <CamperFeatureList features={camper.details} />
-        <button type="button">Show more</button>
+        <button className={css.button} type="button">
+          Show more
+        </button>
       </div>
     </li>
   );

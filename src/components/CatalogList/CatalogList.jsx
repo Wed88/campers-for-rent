@@ -41,7 +41,9 @@ export const CatalogList = () => {
       )}
       {loading && <Loader />}
       {campers.length !== 0 && loadMore && (
-        <button type="button">Load more</button>
+        <button className={css.button} type="button">
+          Load more
+        </button>
       )}
     </div>
   );
