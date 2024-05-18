@@ -78,7 +78,9 @@ export const CatalogSearchBar = () => {
         />
         <CatalogFilterList filterGroup="Vehicle type" filters={vehicleType} />
         <span className={css.gap}></span>
-        <button type="submit">Search</button>
+        <button className={css.button} type="submit">
+          Search
+        </button>
       </form>
     </div>
   );

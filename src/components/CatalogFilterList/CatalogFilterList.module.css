@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.name {
+  color: #101828;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  row-gap: 8px;
+  column-gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid #10182810;
+  padding-top: 24px;
+}

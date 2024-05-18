@@ -1,10 +1,11 @@
 import { CatalogFilterItem } from '../CatalogFilterItem/CatalogFilterItem';
+import css from './CatalogFilterList.module.css';
 
 export const CatalogFilterList = ({ filterGroup, filters }) => {
   return (
-    <div>
-      <p>{filterGroup}</p>
-      <ul>
+    <div className={css.container}>
+      <p className={css.name}>{filterGroup}</p>
+      <ul className={css.group}>
         {Object.keys(filters).map(filter => {
           return (
             <CatalogFilterItem

@@ -1,6 +1,7 @@
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { useDispatch } from 'react-redux';
 import { addToolsFilter, removeToolsFilter } from '../../redux/slice';
+import css from './CatalogFilterItem.module.css';
 
 export const CatalogFilterItem = ({ name, icon, nameValue }) => {
   const dispatch = useDispatch();
@@ -13,15 +14,16 @@ export const CatalogFilterItem = ({ name, icon, nameValue }) => {
     }
   };
   return (
-    <li>
+    <li className={css.container}>
       <input
+        className={css.input}
         id={name}
         type="checkbox"
         onChange={evt => updateStatus(evt.target)}
         hidden
       />
-      <label htmlFor={name}>
-        <div>
+      <label className={css.checkbox} htmlFor={name}>
+        <div className={css.svgBox}>
           <SvgIcon icon={icon} />
         </div>
         {nameValue}
