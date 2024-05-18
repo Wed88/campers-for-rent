@@ -1,13 +1,14 @@
 import { CatalogItemHeader } from '../CatalogItemHeader/CatalogItemHeader';
 import { CamperFeatureList } from '../CamperFeatureList/CamperFeatureList';
+import css from './CatalogItem.module.css';
 
 export const CatalogItem = ({ camper }) => {
   return (
-    <li>
-      <img src={camper.gallery[0]} alt={camper.name} />
-      <div>
+    <li className={css.container}>
+      <img className={css.image} src={camper.gallery[0]} alt={camper.name} />
+      <div className={css.infoblock}>
         <CatalogItemHeader camper={camper} modal={false} />
-        <p>{camper.description}</p>
+        <p className={css.description}>{camper.description}</p>
         <CamperFeatureList features={camper.details} />
         <button type="button">Show more</button>
       </div>

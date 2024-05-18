@@ -1,0 +1,32 @@
+.container {
+  border: 1px solid #10182820;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+}
+
+.infoblock {
+  width: 62%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.description {
+  width: 100%;
+  font-size: 16px;
+  color: #475467;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image {
+  max-width: 35%;
+  object-fit: cover;
+  border-radius: 10px;
+}
