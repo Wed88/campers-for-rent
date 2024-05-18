@@ -45,21 +45,19 @@ export const CatalogSearchBar = () => {
   };
 
   const vehicleType = {
-    form: 'Form',
-    length: 'Length',
-    width: 'Width',
-    height: 'Height',
-    tank: 'Tank',
-    consumption: 'Consumption',
+    panelTruck: 'Van',
+    fullyIntegrated: 'Fully Integrated',
+    alcove: 'Alcove',
   };
 
   return (
     <div className={css.container}>
       <form className={css.form} onSubmit={handleSearchSubmit}>
-        <div>
-          <p className={css.group}>Location</p>
-          <div>
+        <div className={css.box}>
+          <p className={css.label}>Location</p>
+          <div className={css.inputBox}>
             <input
+              className={css.input}
               id="location"
               name="location"
               type="input"
@@ -68,12 +66,12 @@ export const CatalogSearchBar = () => {
               value={locationFilter}
               onChange={evt => updateValue(evt.target.value)}
             />
-            <div>
+            <div className={css.svgBox}>
               <SvgIcon icon={'location'} />
             </div>
           </div>
         </div>
-        <p>Filters</p>
+        <p className={css.group}>Filters</p>
         <CatalogFilterList
           filterGroup="Vehicle equipment"
           filters={vehicleEquipment}
