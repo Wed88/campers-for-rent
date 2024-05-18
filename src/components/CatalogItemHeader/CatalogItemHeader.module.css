@@ -1,0 +1,91 @@
+.container {
+  color: #101828;
+  font-size: 24px;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  row-gap: 16px;
+  column-gap: 10px;
+}
+
+.group {
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+}
+
+.header {
+  font-size: 24px;
+}
+.groupData {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+}
+
+.svgBox {
+  max-width: 24px;
+  max-height: 24px;
+  padding-top: 3px;
+  fill: none;
+  stroke: #101828;
+  cursor: pointer;
+}
+
+.favorite {
+  fill: #e44848;
+  stroke: #e44848;
+}
+
+.hidden {
+  fill: none;
+  stroke: none;
+}
+
+.container:has(.hidden) {
+  flex-wrap: wrap;
+}
+
+.priceText {
+  color: #101828;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.containerRating {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.svgBoxRating {
+  width: 16px;
+  height: 16px;
+  stroke: #ffc531;
+  fill: #ffc531;
+  display: flex;
+  align-items: center;
+}
+
+.textRating {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.containerLocation {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.svgBoxLocation {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #101828;
+}
