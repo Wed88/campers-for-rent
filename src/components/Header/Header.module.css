@@ -6,6 +6,7 @@
 .navpanel {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 50px;
   align-items: center;
   padding: 8px 16px;
