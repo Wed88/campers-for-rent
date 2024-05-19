@@ -1,31 +1,28 @@
 import { SvgIcon } from '../SvgIcon/SvgIcon';
+import css from './CamperModalReview.module.css';
 
 export const CamperModalReview = ({ reviews }) => {
   return (
-    <ul>
+    <ul className={css.container}>
       {reviews.map(review => {
         return (
-          <li key={review.reviewer_name}>
-            <div>
-              <div>
-                <span>{review.reviewer_name[0]}</span>
-                <div>
-                  <div>{review.reviewer_name}</div>
-                  <ul>
-                    {[...Array(review.reviewer_rating).keys()].map(i => {
-                      return (
-                        <li key={i}>
-                          <SvgIcon icon={'star'} />
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  {/* <RatingBar rating={review.reviewer_rating} /> */}
-                </div>
+          <li className={css.box} key={review.reviewer_name}>
+            <div className={css.header}>
+              <span className={css.avatar}>{review.reviewer_name[0]}</span>
+              <div className={css.infoBox}>
+                <div className={css.name}>{review.reviewer_name}</div>
+                <ul className={css.list}>
+                  {[...Array(review.reviewer_rating).keys()].map(i => {
+                    return (
+                      <li className={css.svgBox} key={i}>
+                        <SvgIcon icon={'star'} />
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
-              <p>{review.comment}</p>
             </div>
-            {/* <ModalReviewItem review={review} /> */}
+            <p>{review.comment}</p>
           </li>
         );
       })}
