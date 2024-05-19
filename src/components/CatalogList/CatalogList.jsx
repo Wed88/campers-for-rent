@@ -3,6 +3,7 @@ import Loader from '../Loader/Loader';
 import { useEffect } from 'react';
 import { fetchCampers } from '../../redux/thunk';
 import { useDispatch, useSelector } from 'react-redux';
+import { updateCurrentPage } from '../../redux/slice';
 import {
   selectCampers,
   selectCurrentPage,
@@ -29,6 +30,10 @@ export const CatalogList = () => {
     );
   }, [dispatch, currentPage]);
 
+  const onClickLoadMore = () => {
+    dispatch(updateCurrentPage(currentPage + 1));
+  };
+
   return (
     <div className={css.container}>
       {error}
@@ -41,7 +46,11 @@ export const CatalogList = () => {
       )}
       {loading && <Loader />}
       {campers.length !== 0 && loadMore && (
-        <button className={css.button} type="button">
+        <button
+          className={css.button}
+          type="button"
+          onClick={() => onClickLoadMore()}
+        >
           Load more
         </button>
       )}
