@@ -1,7 +1,5 @@
 import { CamperFeatureList } from '../CamperFeatureList/CamperFeatureList';
 import { CamperModalForm } from '../CamperModalForm/CamperModalForm';
-// import ModalCamperDetails from '../ModalCamperDetails/ModalCamperDetails';
-// import ModalTabsHeader from '../ModalTabsHeader/ModalTabsHeader';
 import { CamperModalReview } from '../CamperModalReview/CamperModalReview';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectActiveTab } from '../../redux/selectors';
@@ -32,10 +30,6 @@ export const CamperModalBody = ({ camper }) => {
             <div onClick={() => changeActiveTab('Features')}>{'Features'}</div>
             <div onClick={() => changeActiveTab('Reviews')}>{'Reviews'}</div>
           </div>
-          {/* <ModalTabsHeader
-            activeTab={activeTab}
-            changeActiveTab={changeActiveTab}
-          /> */}
           <div>
             <div>
               {activeTab === 'Features' && (
@@ -54,10 +48,6 @@ export const CamperModalBody = ({ camper }) => {
                       })}
                     </ul>
                   </div>
-                  {/* <ModalCamperDetails
-                    camper={camper}
-                    details={vihicleDetails}
-                  /> */}
                 </>
               )}
               {activeTab === 'Reviews' && (

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentCamper } from '../../redux/selectors';
 import { updateActiveTab, updateCurrentCamper } from '../../redux/slice';
 import { useCallback, useRef, useEffect } from 'react';
+import css from './CamperModal.module.css';
 
 export const CamperModal = () => {
   const dispatch = useDispatch();
@@ -39,27 +40,27 @@ export const CamperModal = () => {
   }, [onClickClose]);
 
   return (
-    <div ref={backdropRef}>
-      <div>
-        <div onClick={onClickClose}>
+    <div className={css.backdrop} ref={backdropRef}>
+      <div className={css.container}>
+        <div className={css.svgBoxClose} onClick={onClickClose}>
           <SvgIcon icon={'close'} />
         </div>
-        <div>
+        <div className={css.contentBox}>
           {camper && (
-            <div>
-              <div>
+            <div className={css.box}>
+              <div className={css.header}>
                 <CatalogItemHeader camper={camper} modal={true} />
               </div>
-              <ul>
+              <ul className={css.gallery}>
                 {camper.gallery.map(src => {
                   return (
-                    <li key={src}>
-                      <img src={src} alt={camper.name} />
+                    <li key={src} className={css.imageBox}>
+                      <img className={css.image} src={src} alt={camper.name} />
                     </li>
                   );
                 })}
               </ul>
-              <p>{camper.description}</p>
+              <p className={css.description}>{camper.description}</p>
             </div>
           )}
           <CamperModalBody camper={camper} />
