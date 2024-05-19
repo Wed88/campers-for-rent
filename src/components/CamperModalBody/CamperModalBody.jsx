@@ -4,6 +4,7 @@ import { CamperModalReview } from '../CamperModalReview/CamperModalReview';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectActiveTab } from '../../redux/selectors';
 import { updateActiveTab } from '../../redux/slice';
+import css from './CamperModalBody.module.css';
 
 export const CamperModalBody = ({ camper }) => {
   const dispatch = useDispatch();
@@ -25,22 +26,38 @@ export const CamperModalBody = ({ camper }) => {
   return (
     <>
       {camper && (
-        <div>
-          <div>
-            <div onClick={() => changeActiveTab('Features')}>{'Features'}</div>
-            <div onClick={() => changeActiveTab('Reviews')}>{'Reviews'}</div>
+        <div className={css.container}>
+          <div className={css.box}>
+            <div
+              className={css.tabHeader}
+              onClick={() => changeActiveTab('Features')}
+            >
+              {'Features'}
+              <span
+                className={activeTab === 'Features' ? css.active : ''}
+              ></span>
+            </div>
+            <div
+              className={css.tabHeader}
+              onClick={() => changeActiveTab('Reviews')}
+            >
+              {'Reviews'}
+              <span
+                className={activeTab === 'Reviews' ? css.active : ''}
+              ></span>
+            </div>
           </div>
-          <div>
-            <div>
+          <div className={css.tabBody}>
+            <div className={css.tab}>
               {activeTab === 'Features' && (
                 <>
                   <CamperFeatureList features={camper.details} />
-                  <div>
-                    <h3>Vehicle details</h3>
-                    <ul>
+                  <div className={css.wraper}>
+                    <h3 className={css.header}>Vehicle details</h3>
+                    <ul className={css.list}>
                       {Object.keys(vihicleDetails).map(detailsKey => {
                         return (
-                          <li key={detailsKey}>
+                          <li key={detailsKey} className={css.item}>
                             <span>{vihicleDetails[detailsKey]}</span>
                             <span>{camper[detailsKey]}</span>
                           </li>

@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
+  margin: 0 40px;
+  margin-bottom: 40px;
+}
+
+.box {
+  font-size: 20;
+  font-weight: 600;
+  color: #101828;
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
+  border-bottom: 1px solid #10182820;
+}
+
+.tabHeader {
+  position: relative;
+  padding-bottom: 24px;
+  cursor: pointer;
+}
+
+.active {
+  width: 100%;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  display: block;
+  width: inherit;
+  border-bottom: 5px solid #e44848;
+}
+
+.tabBody {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+  align-items: flex-start;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
+  width: calc((100% - 24px) / 2);
+}
+
+.wraper {
+  color: #101828;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 48px;
+}
+
+.list {
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
