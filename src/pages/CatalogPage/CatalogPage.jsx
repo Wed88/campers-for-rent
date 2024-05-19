@@ -1,8 +1,13 @@
 import { CatalogSearchBar } from '../../components/CatalogSearchBar/CatalogSearchBar';
 import { CatalogList } from '../../components/CatalogList/CatalogList';
+import { CamperModal } from '../../components/CamperModal/CamperModal';
+import { useSelector } from 'react-redux';
+import { selectCurrentCamper } from '../../redux/selectors';
 import css from './CatalogPage.module.css';
 
 export const CatalogPage = () => {
+  const camper = useSelector(selectCurrentCamper);
+
   return (
     <>
       <div className={css.container}>
@@ -11,6 +16,7 @@ export const CatalogPage = () => {
           <CatalogList />
         </div>
       </div>
+      {camper && <CamperModal />}
     </>
   );
 };

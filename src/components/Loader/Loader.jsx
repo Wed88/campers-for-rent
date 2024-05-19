@@ -1,15 +1,17 @@
-import { Grid } from 'react-loader-spinner';
+import { MagnifyingGlass } from 'react-loader-spinner';
 import css from './Loader.module.css';
 
 const Loader = () => {
   return (
     <div className={css.container}>
-      <Grid
-        height="40"
-        width="40"
-        radius="10"
+      <MagnifyingGlass
+        height="80"
+        width="80"
+        ariaLabel="magnifying-glass-loading"
+        wrapperStyle={{}}
+        wrapperClass="magnifying-glass-wrapper"
+        glassColor="#c0efff"
         color="#475467"
-        ariaLabel="loading"
       />
     </div>
   );
