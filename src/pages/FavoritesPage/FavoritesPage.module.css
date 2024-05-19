@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  row-gap: 32px;
+  justify-content: center;
+  align-items: center;
+  margin: 32px auto;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  width: 100%;
+}
