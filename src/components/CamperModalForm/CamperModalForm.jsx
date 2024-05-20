@@ -1,6 +1,12 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { updateBooked } from '../../redux/slice';
+import { selectBooked } from '../../redux/selectors';
 import css from './CamperModalForm.module.css';
 
-export const CamperModalForm = () => {
+export const CamperModalForm = ({ camper }) => {
+  const dispatch = useDispatch();
+  const booked = useSelector(selectBooked);
+
   const onDateFocus = evt => {
     evt.target.type = 'date';
   };
@@ -9,8 +15,17 @@ export const CamperModalForm = () => {
     evt.target.type = 'text';
   };
 
+  const onSubmitBookingForm = evt => {
+    evt.preventDefault();
+    const form = evt.target;
+    if (form.date.value >= new Date().toISOString().split('T')[0]) {
+      dispatch(updateBooked([...booked, camper._id]));
+      form.reset();
+    }
+  };
+
   return (
-    <form className={css.container}>
+    <form className={css.container} onSubmit={onSubmitBookingForm}>
       <div className={css.header}>
         <h2>Book your campervan now</h2>
         <p>Stay connected! We are always ready to help you.</p>
@@ -50,9 +65,13 @@ export const CamperModalForm = () => {
           placeholder="Comment"
         />
       </div>
-      <button className={css.button} type="submit">
-        Send
-      </button>
+      {booked.includes(camper._id) ? (
+        'You have already booked this camper.'
+      ) : (
+        <button className={css.button} type="submit">
+          Send
+        </button>
+      )}
     </form>
   );
 };
