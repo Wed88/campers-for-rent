@@ -78,10 +78,14 @@ export const CatalogList = () => {
     const features = Object.keys(featurTypes);
     const checkedFeatures = toolsFilter.filter(item => features.includes(item));
 
-    return checkedFeatures.every(filter => camper.details[filter] > 0);
+    return checkedFeatures.every(filter => {
+      const featureValue = camper.details[filter];
+      return featureValue && featureValue > 0;
+    });
   };
 
   const fromLocation = camperLocation => {
+    if (!camperLocation || !locationFilter) return true;
     return camperLocation.toLowerCase().includes(locationFilter.toLowerCase());
   };
 
@@ -91,26 +95,24 @@ export const CatalogList = () => {
       .filter(camper => allMatches(camper));
   };
 
+  const filteredList = filteredCampers(campers);
+
   return (
     <div className={css.container}>
       {error}
       {campers.length !== 0 && (
         <ul className={css.list}>
-          {filteredCampers(campers).map(camper => {
+          {filteredList.map(camper => {
             return <CatalogItem key={camper._id} camper={camper} />;
           })}
         </ul>
       )}
-      {filteredCampers(campers).length === 0 && !loading && (
+      {filteredList.length === 0 && !loading && (
         <p>There is no camper to match your requirements</p>
       )}
       {loading && <Loader />}
-      {filteredCampers(campers).length !== 0 && loadMore && (
-        <button
-          className={css.button}
-          type="button"
-          onClick={() => onClickLoadMore()}
-        >
+      {filteredList.length !== 0 && loadMore && (
+        <button className={css.button} type="button" onClick={onClickLoadMore}>
           Load more
         </button>
       )}
